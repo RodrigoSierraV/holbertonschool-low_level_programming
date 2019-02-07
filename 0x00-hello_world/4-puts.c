@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main:This program 4-puts.c prints exactly
+ * main - This program 4-puts.c prints exactly
  * "Programming is like building a multilingual puzzle
  * Return: 0
  */
