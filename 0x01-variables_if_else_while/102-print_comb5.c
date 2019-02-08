@@ -17,7 +17,7 @@ int z;
 	{
 	for (y = 1; y < 10; y = y + 1)
 	{
-	if (y + x > c + z)
+	if ((x * 10) + y > (z * 10) + c)
 	{
 	putchar(z % 10 + '0');
 	putchar(c % 10 + '0');
