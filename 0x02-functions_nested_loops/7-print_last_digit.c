@@ -19,6 +19,6 @@ else
 {
 resultado = 0;
 }
-_putchar(resultado % 10 + '0');
+_putchar(resultado + '0');
 return (resultado);
 }
