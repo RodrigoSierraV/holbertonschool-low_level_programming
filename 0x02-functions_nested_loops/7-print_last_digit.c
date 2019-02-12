@@ -12,7 +12,7 @@ int resultado = n % 10;
 if (n < 0)
 {
 _putchar(-resultado + '0');
- return (-resultado);
+return (-resultado);
 }
 else
 {
