@@ -1,8 +1,6 @@
 #include "holberton.h"
-
 /**
- * _putchar - writes one character to stdout
- *
+ *main - prints Holberton
  * Return: 0
  */
 int main(void)
