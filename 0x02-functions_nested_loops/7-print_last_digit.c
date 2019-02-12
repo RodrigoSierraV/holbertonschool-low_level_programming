@@ -16,7 +16,7 @@ return (resultado);
 else
 {
 resultado = -n % 10;
-_putchar(resultado % 10 + '0'); 
+_putchar(resultado % 10 + '0');
 return (resultado);
 }
 }
