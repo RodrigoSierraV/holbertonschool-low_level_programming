@@ -12,13 +12,13 @@ void jack_bauer(void)
   int z;
   for (z = 0; z < 3; z = z + 1)
     {
-      for (c = 0; c < 9; c = c + 1)
+      for (c = 0; c < 10; c = c + 1)
 	{
 	  for (x = 0; x < 6; x = x + 1)
 	    {
 	      for (y = 0; y < 10; y = y + 1)
 		{
-	          while (((z * 10) + c) < 24)
+	          if (((z * 10) + c) < 24)
 		    {
 		      _putchar(z % 10 + '0');
 		      _putchar(c % 10 + '0');
