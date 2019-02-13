@@ -37,7 +37,7 @@ _putchar(mult % 10 + '0');
 else
 {
 res = ((mult % 100) - (mult % 10)) / 10;
-res2 =(mult - (mult % 100)) / 100;
+res2 = (mult - (mult % 100)) / 100;
 _putchar(' ');
 _putchar(res2 + '0');
 _putchar(res + '0');
