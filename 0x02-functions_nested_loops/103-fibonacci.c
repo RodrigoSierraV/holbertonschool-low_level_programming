@@ -1,0 +1,28 @@
+#include <stdio.h>
+/**
+ * main - Prints the first 50 Fibonacci numbers
+ * Return: 0
+ */
+int main(void)
+{
+long int a = 0;
+long int b = 1;
+int c;
+long int add;
+int proof;
+long int sum;
+for (c = 0; c < 32; c++)
+{
+add = a + b;
+proof = add % 2;
+if (proof == 0)
+{
+sum += add;
+}
+a = b;
+b = add;
+}
+printf("%li", sum);
+putchar('\n');
+return (0);
+}
