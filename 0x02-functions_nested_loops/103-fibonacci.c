@@ -10,7 +10,7 @@ long int b = 1;
 int c;
 long int add;
 int proof;
-long int sum;
+long int sum = 0;
 for (c = 0; c < 32; c++)
 {
 add = a + b;
