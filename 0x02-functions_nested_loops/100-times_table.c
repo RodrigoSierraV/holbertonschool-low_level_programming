@@ -51,7 +51,4 @@ _putchar(44);
 _putchar('\n');
 }
 }
-else
-{
-}
 }
