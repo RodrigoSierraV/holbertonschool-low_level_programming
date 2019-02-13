@@ -26,7 +26,7 @@ _putchar(' ');
 _putchar(' ');
 _putchar(mult % 10 + '0');
 }
-else if (mult > 10 && mult < 100)
+else if (mult >= 10 && mult < 100)
 {
 res = (mult - (mult % 10)) / 10;
 _putchar(' ');
