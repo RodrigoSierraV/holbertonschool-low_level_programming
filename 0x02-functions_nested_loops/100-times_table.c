@@ -5,15 +5,20 @@
  */
 void print_times_table(int n)
 {
-int i, c;
-int mult;
-int res, res2;
+int i, c, mult, res, res2;
 if (n <= 15 && n >= 0)
 {
 for (i = 0; i <= n; i++)
 {
+if (n == 0)
+{
+_putchar('0');
+}
+else
+{
 _putchar('0');
 _putchar(44);
+}
 for (c = 1; c <= n; c++)
 {
 _putchar(' ');
