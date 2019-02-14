@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
- *print_line draws a straight line in the terminal.
- *
+ *print_line - draws a straight line in the terminal.
+ *@n: given number to print character '_'
  */
 void print_line(int n)
 {
