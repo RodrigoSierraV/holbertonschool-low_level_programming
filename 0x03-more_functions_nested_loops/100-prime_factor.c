@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  *main - prints the largest prime factor of the number 612852475143
- *
+ *Return: 0
  */
 int main(void)
 {
@@ -18,8 +18,7 @@ if (mod == 0)
 div = pro / i;
 if (div == 1)
 {
-printf("%li", i);
-putchar('\n');
+printf("%li\n", i);
 i = base;
 }
 else
