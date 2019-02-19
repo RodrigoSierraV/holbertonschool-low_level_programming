@@ -21,7 +21,6 @@ char *_strcpy(char *dest, char *src)
 	i++;
 	}
 	i = 0;
-	printf("%d\n%d\n", count, i);
 	while (i <= count)
 	{
 		*(dest + i) = *(src + i);
