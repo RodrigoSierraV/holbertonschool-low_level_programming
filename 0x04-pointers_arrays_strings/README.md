@@ -1,0 +1,1 @@
+This project is about the use of pointers and arrays in C. Each commit will have the purpose of each program.
