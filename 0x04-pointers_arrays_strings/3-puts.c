@@ -13,17 +13,17 @@ void _puts(char *str)
 
 	while (b != '\0')
 	{
-		b = *(str + i);
-		count += 1;
-		i++;
+	b = *(str + i);
+	count += 1;
+	i++;
 	}
 	count = count - 1;
 	i = 0;
 	while (i < count)
 	{
-		b = *(str + i);
-		_putchar(b);
-		i++;
+	b = *(str + i);
+	_putchar(b);
+	i++;
 	}
 	_putchar('\n');
 }
