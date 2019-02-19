@@ -17,7 +17,7 @@ void print_rev(char *s)
 		count += 1;
 		i++;
 	}
-	count = count - 1;
+	count = count - 2;
 	while (count >= 0)
 	{
 		b = *(s + count);
