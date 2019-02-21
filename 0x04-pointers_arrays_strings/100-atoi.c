@@ -19,6 +19,8 @@ int _atoi(char *s)
 	}
 	count = i - 1;
 	i = 0;
+if ((s[0] == 45) && (s[1] >= 48 && s[1] <= 57))
+{
 	while (i <= count)
 	{
 		b = *(s + i) - '0';
@@ -40,5 +42,31 @@ int _atoi(char *s)
 			i++;
 		}
 	}
-	return (c);
+	return (-c);
+}
+ else
+   {
+     while (i <= count)
+       {
+	 b = *(s + i) - '0';
+	 if (b >= 0 && b <= 9)
+	   {
+	     c = (c * 10) + b;
+	     d = i + 1;
+	     if ((*(s + d) - '0') >= 0 && (*(s + d) - '0') <= 9)
+	       {
+	       }
+	     else
+	       {
+		 i = count;
+	       }
+	     i++;
+	   }
+	 else
+	   {
+	     i++;
+	   }
+       }
+     return (c);
+}
 }
