@@ -12,7 +12,7 @@ int main(void)
 
   n = _atoi("-2147483648");
   printf("%d\n", n);
-  n = _atoi("-402");
+  n = _atoi("+++++ +-+ 2242454");
   printf("%d\n", n);
   n = _atoi("          ------++++++-----+++++--98");
   printf("%d\n", n);
