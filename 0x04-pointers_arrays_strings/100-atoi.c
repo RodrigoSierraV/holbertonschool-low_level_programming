@@ -11,10 +11,18 @@ int _atoi(char *s)
 	int count = 0;
 	int b = 0;
 	int d = 0;
-	int c = 0;
+	unsigned int c = 0;
+	int signo = 1;
+	int signofinal = 1;
 
 	while (*(s + i) != '\0')
 	{
+		if (s[i] == 45)
+		{
+			signo = signo * (-1);
+		}
+		if (s[i + 1] >= 48 && s[i + 1] <= 57)
+			signofinal = signo;
 		i++;
 	}
 	count = i - 1;
@@ -24,9 +32,12 @@ int _atoi(char *s)
 		b = *(s + i) - '0';
 		if (b >= 0 && b <= 9)
 		{
-			c = (c *10) + b;
+			c = (c * 10) + b;
+			d = i + 1;
+			if ((*(s + d) - '0') < 0 || (*(s + d) - '0') > 9)
+				i = count;
 		}
 		i++;
 	}
-	return(c);
+	return (signofinal * c);
 }
