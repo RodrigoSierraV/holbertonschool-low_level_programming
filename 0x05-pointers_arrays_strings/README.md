@@ -1,0 +1,1 @@
+This project is the continuation of the using of pointers and arrays. Each commit will explain the purpose of each program. 
