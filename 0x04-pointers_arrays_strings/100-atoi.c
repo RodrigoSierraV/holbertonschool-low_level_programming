@@ -27,24 +27,13 @@ int _atoi(char *s)
 		{
 			d++;
 			if (d == 1)
-			{
 				start = i;
-			}
 			c = (c * 10) + b;
 			d = i + 1;
-			if ((*(s + d) - '0') >= 0 && (*(s + d) - '0') <= 9)
-			{
-			}
-			else
-			{
+			if ((*(s + d) - '0') < 0 || (*(s + d) - '0') > 9)
 				i = count;
-			}
-			i++;
 		}
-		else
-		{
-			i++;
-		}
+		i++;
 	}
 	if (s[start - 1] == 45)
 	{
