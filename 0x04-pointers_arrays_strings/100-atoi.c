@@ -22,7 +22,7 @@ int _atoi(char *s)
 			signo = signo * (-1);
 		}
 		if (s[i + 1] >= 48 && s[i + 1] <= 57)
-		  signofinal = signo;
+			signofinal = signo;
 		i++;
 	}
 	count = i - 1;
