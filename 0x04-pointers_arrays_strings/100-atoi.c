@@ -12,6 +12,7 @@ int _atoi(char *s)
 	int b = 0;
 	int d = 0;
 	int c = 0;
+	int start = 0;
 
 	while (*(s + i) != '\0')
 	{
@@ -19,13 +20,16 @@ int _atoi(char *s)
 	}
 	count = i - 1;
 	i = 0;
-if ((s[0] == 45) && (s[1] >= 48 && s[1] <= 57))
-{
 	while (i <= count)
 	{
 		b = *(s + i) - '0';
 		if (b >= 0 && b <= 9)
 		{
+			d++;
+			if (d == 1)
+			{
+				start = i;
+			}
 			c = (c * 10) + b;
 			d = i + 1;
 			if ((*(s + d) - '0') >= 0 && (*(s + d) - '0') <= 9)
@@ -42,31 +46,12 @@ if ((s[0] == 45) && (s[1] >= 48 && s[1] <= 57))
 			i++;
 		}
 	}
-	return (-c);
-}
-else
-{
-	while (i <= count)
+	if (s[start - 1] == 45)
 	{
-	b = *(s + i) - '0';
-	if (b >= 0 && b <= 9)
-	{
-	c = (c * 10) + b;
-	d = i + 1;
-	if ((*(s + d) - '0') >= 0 && (*(s + d) - '0') <= 9)
-	{
+		return (-c);
 	}
 	else
 	{
-	i = count;
+		return (c);
 	}
-	i++;
-	}
-	else
-	{
-	i++;
-	}
-}
-return (c);
-}
 }
