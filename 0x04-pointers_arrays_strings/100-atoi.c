@@ -9,25 +9,24 @@ int _atoi(char *s)
 {
 	int i = 0;
 	int count = 0;
-	char b = *s;
-	int ib;
+	int b = 0;
+	int d = 0;
+	int c = 0;
 
-	while (b != '\0')
+	while (*(s + i) != '\0')
 	{
-	b = *(s + i);
-	count += 1;
-	i++;
+		i++;
 	}
-	count = count - 1;
+	count = i - 1;
 	i = 0;
 	while (i <= count)
 	{
-		b = *(s + i);
-		ib = b - '0';
-		if (ib > 0 && ib <= 9)
-		  printf("%d", ib);
+		b = *(s + i) - '0';
+		if (b >= 0 && b <= 9)
+		{
+			c = (c *10) + b;
+		}
 		i++;
 	}
-	putchar('\n');
-	return (0);
+	return(c);
 }
