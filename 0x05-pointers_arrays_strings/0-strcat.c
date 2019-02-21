@@ -21,7 +21,6 @@ char *_strcat(char *dest, char *src)
 	{
 		srclen++;
 	}
-	srclen -= 1;
 	for (i = 0; i < srclen; i++)
 	{
 		if (*(src + i) != '\0')
@@ -30,6 +29,7 @@ char *_strcat(char *dest, char *src)
 			*(dest + b) = *(src + i);
 		}
 	}
-	*(dest + i) = '\0';
+	b = destlen + srclen;
+	*(dest + b) = '\0';
 	return (dest);
 }
