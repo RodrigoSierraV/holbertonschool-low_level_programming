@@ -10,8 +10,8 @@ char *rot13(char *src)
 {
 	int b = 0;
 	int i = 0;
-	char in[] = "A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z";
-	char out[] = "N, O, P, Q, R, S, T, U, V, W, X, Y, Z, A, B, C, D, E, F, G, H, I, J, K, L, M, n, o, p, q, r, s, t, u, v, w, x, y, z, a, b, c, d, e, f, g, h, i, j, k, l, m";
+	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; src[i] != '\0'; i++)
 	{
@@ -20,6 +20,7 @@ char *rot13(char *src)
 			if (src[i] == in[b])
 			{
 				src[i] = out[b];
+				b = 52;
 			}
 		}
 	}
