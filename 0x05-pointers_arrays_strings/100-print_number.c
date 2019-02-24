@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <limits.h>
 /**
 * print_number - prints an integer with _putchar.
 * @n: given integer to print
@@ -15,6 +16,10 @@ int residuo, z;
 int div;
 int digit;
 
+	if (n > INT_MAX)
+		n = 2147483647;
+	if (n < INT_MIN)
+		n = -2147483648;
 	while (digitcount != 0)
 	{
 		digitcount = (digitcount - (digitcount % 10)) / 10;
