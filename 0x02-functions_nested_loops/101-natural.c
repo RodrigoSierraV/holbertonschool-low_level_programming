@@ -6,20 +6,20 @@
  */
 int main(void)
 {
-	int x = 1;
+	int x = 0;
 	int sum3 = 0;
 	int sum5 = 0;
 	int result = 0;
 
-	while (x < 1024)
+	while (x < (1024 - 3))
 	{
-		x *= 3;
+		x += 3;
 		sum3 = sum3 + x;
 	}
-	x = 1;
-	while (x < 1024)
+	x = 0;
+	while (x < (1024 - 5))
 	{
-		x *= 5;
+		x += 5;
 		sum5 = sum5 + x;
 	}
 	result = sum3 + sum5;
