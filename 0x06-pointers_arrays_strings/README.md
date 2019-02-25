@@ -1,0 +1,1 @@
+This project is about pointers, pointers to pointers and 2D arrays. Each commit will have the number of the task and the purpose of each function.  
