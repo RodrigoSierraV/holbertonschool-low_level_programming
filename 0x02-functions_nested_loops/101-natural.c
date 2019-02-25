@@ -14,7 +14,8 @@ int main(void)
 	while (x < (1024 - 3))
 	{
 		x += 3;
-		sum3 = sum3 + x;
+		if ((x % 5) != 0)
+			sum3 = sum3 + x;
 	}
 	x = 0;
 	while (x < (1024 - 5))
