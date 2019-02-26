@@ -3,50 +3,37 @@
 /**
  * *_strpbrk -  searches a string for any of a set of bytes.
  * @s: string to scan
- * @accept: bytes to search in s
+ * @accept: substring to search in s
  *
- * Return: pointer to the byte in s that matches one of the
- * bytes in accept, or NULL if no such byte is found
+ * Return: pointer to the byte in s that matches one of the bytes in accept
+ * or NULL if subtring in not found
  */
 char *_strpbrk(char *s, char *accept)
 {
-	int lena = 0;
-	int b = 0;
-	char *link = 0;
-	int pos[100];
-	int i, z;
-	int position = 0;
+	char *link = NULL;
+	int i = 0;
+	int z = 0;
+	int lenh = 0;
+	int lend = 0;
 
-	for (z = 0; z < 100; z++)
-		pos[z] = 0;
-	while (*(accept + lena) != '\0')
-		lena++;
-	if (*accept >= 0)
-	{
-		while (*(s + b) != ',')
+	while (*(s + lenh) != '\0')
+		lenh++;
+	while (*(accept + lend) != '\0')
+		lend++;
+		while (i < lenh)
 		{
-			i = 0;
-			while (i < lena)
+			z = 0;
+			while (z < lend)
 			{
-				if (*(s + b) == *(accept + i))
-					pos[b] = b;
-				i++;
+				if (*(s + i) == *(accept + z))
+				{
+					link = &*(s + i);
+					i = lenh;
+					z = lend;
+				}
+				z++;
 			}
-			b++;
+			i++;
 		}
-	}
-	else
-	{
-		link = 0;
-	}
-	for (z = 0; z < 100; z++)
-	{
-		if (pos[z] > 0)
-		{
-			position = pos[z];
-			z = 100;
-		}
-	}
-	link = &*(s + position);
-	return (link);
+		return (link);
 }
