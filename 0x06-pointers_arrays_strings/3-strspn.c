@@ -31,7 +31,7 @@ unsigned int _strspn(char *s, char *accept)
 				z++;
 			}
 			if (sum < i)
-			  break;
+				break;
 			i++;
 		}
 		return (sum);
