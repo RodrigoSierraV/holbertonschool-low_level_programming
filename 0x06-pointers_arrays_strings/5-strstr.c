@@ -42,11 +42,11 @@ char *_strstr(char *haystack, char *needle)
 			i++;
 		}
 		if (sum != lend)
-			link = 0;
+			return (0);
 	}
 	else
 	{
-		link = 0;
+		return (0);
 	}
 	return (link);
 }
