@@ -10,42 +10,44 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int b = 0;
+	int sum = 0;
 	char *link = 0;
-	int pos[100];
-	int i, z;
-	int position = 0;
+	int i = 0;
+	int z = 0;
+	int lenh = 0;
+	int lend = 0;
 
-	for (z = 0; z < 100; z++)
-		pos[z] = 0;
-	while (*(haystack + b) != ',')
-		b++;
+	while (*(haystack + lenh) != '\0')
+		lenh++;
+	while (*(needle + lend) != '\0')
+		lend++;
 	if (*needle >= 0)
 	{
-		while (*(haystack + b) != '\0')
+		while (i < lenh)
 		{
-			i = 0;
-			while (*(needle + i) != '\0')
+			z = 0;
+			sum = 0;
+			while (z < lend)
 			{
-				if (*(haystack + b) == *(needle + i))
-					pos[b] = b;
-				i++;
+				if (*(haystack + (i + z)) == *(needle + z))
+					sum += 1;
+				printf("hay:%c nee:%c sum:%d\n", *(haystack + (i + z)), *(needle + z), sum);
+				if (sum == lend)
+				{
+					link = &*(haystack + i);
+					i = lenh;
+					z = lend;
+				}
+				z++;
 			}
-			b++;
+			i++;
 		}
+		if (sum != lend)
+			link = 0;
 	}
 	else
 	{
 		link = 0;
 	}
-	for (z = 0; z < 100; z++)
-	{
-		if (pos[z] > 0)
-		{
-			position = pos[z];
-			z = 100;
-		}
-	}
-	link = &*(haystack + position);
 	return (link);
 }
