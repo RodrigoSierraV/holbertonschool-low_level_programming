@@ -21,7 +21,6 @@ char *_strstr(char *haystack, char *needle)
 		lenh++;
 	while (*(needle + lend) != '\0')
 		lend++;
-	
 		while (i < (lenh - lend + 1))
 		{
 			z = 0;
