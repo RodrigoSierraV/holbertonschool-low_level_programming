@@ -11,7 +11,7 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int sum = 0;
-	char *link = 0;
+	char *link = NULL;
 	int i = 0;
 	int z = 0;
 	int lenh = 0;
@@ -40,6 +40,4 @@ char *_strstr(char *haystack, char *needle)
 			i++;
 		}
 		return (link);
-		if (sum != lend)
-			return (0);
 }
