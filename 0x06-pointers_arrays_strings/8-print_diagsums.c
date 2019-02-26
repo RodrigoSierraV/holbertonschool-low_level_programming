@@ -19,10 +19,13 @@ void print_diagsums(int *a, int size)
 		while (columns < size)
 		{
 			if (rows == columns)
-				sumdiag1 += (*(a + rows) + columns);
+				sumdiag1 += *a;
+			if ((rows + columns) == (size - 1))
+			sumdiag2 += *a;
 			columns++;
+			a++;
 		}
 		rows++;
 	}
-	printf("%d, \n", sumdiag1);
+	printf("%d, %d\n", sumdiag1, sumdiag2);
 }
