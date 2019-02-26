@@ -31,7 +31,6 @@ char *_strstr(char *haystack, char *needle)
 			{
 				if (*(haystack + (i + z)) == *(needle + z))
 					sum += 1;
-				printf("hay:%c nee:%c sum:%d\n", *(haystack + (i + z)), *(needle + z), sum);
 				if (sum == lend)
 				{
 					link = &*(haystack + i);
