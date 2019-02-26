@@ -23,7 +23,7 @@ char *_strstr(char *haystack, char *needle)
 		lend++;
 	if (*needle >= 0)
 	{
-		while (i < lenh)
+		while (i < (lenh - lend + 1))
 		{
 			z = 0;
 			sum = 0;
