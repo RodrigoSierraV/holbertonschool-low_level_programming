@@ -21,6 +21,12 @@ char *_strstr(char *haystack, char *needle)
 		lenh++;
 	while (*(needle + lend) != '\0')
 		lend++;
+	if (*needle == '\0')
+	  {
+	    link = haystack;
+	  }
+	else
+	  {
 		while (i < (lenh - lend + 1))
 		{
 			z = 0;
@@ -39,5 +45,6 @@ char *_strstr(char *haystack, char *needle)
 			}
 			i++;
 		}
-		return (link);
+	  }
+	return (link);
 }
