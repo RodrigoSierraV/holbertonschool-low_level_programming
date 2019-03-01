@@ -1,0 +1,1 @@
+This project is about the creation of static libraries in C. Every commit will have the purpose of each function or script.  
