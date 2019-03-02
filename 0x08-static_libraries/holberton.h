@@ -1,7 +1,11 @@
+#ifndef HOLBERTON_H_
+#define HOLBERTON_H_
+
 /**
  * _putchar - writes the character c to stdout
  *
  */
+
 int _putchar(char c);
 int _isupper(int c);
 int _isdigit(int c);
@@ -50,3 +54,4 @@ int _pow_recursion(int x, int y);
 int _sqrt_recursion(int n);
 int is_prime_number(int n);
 int is_palindrome(char *s);
+#endif /*HOLBERTON_H_ */
