@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
 		i++;
 		while (i < 5)
 		{
-			printf("mod%d div%d chan%d\n", modulo, div, change);
 			div = modulo / changers[i];
 			change += div;
 			modulo = modulo % changers[i];
