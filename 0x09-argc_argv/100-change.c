@@ -20,8 +20,10 @@ int main(int argc, char *argv[])
 	if (argc == 2)
 	{
 		if (atoi(argv[1]) < 0)
+		{
 			printf("0\n");
-
+			return (0);
+		}
 		modulo = atoi(argv[1]) % changers[i];
 		div = atoi(argv[1]) / changers[i];
 		change = div;
