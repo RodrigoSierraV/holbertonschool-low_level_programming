@@ -1,0 +1,1 @@
+This project is about the use of the arguments passed to a program from the command-line with the arguments argc and argv. Every commit will have the purpose of each program.
