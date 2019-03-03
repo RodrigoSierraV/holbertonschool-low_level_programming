@@ -12,12 +12,12 @@ int main(int argc, char *argv[])
 {
 	int sum = 0;
 	int i = 1;
-
+	
 	if (argc > 1)
 	{
 		while (argv[i] != '\0')
 		{
-			if (atoi(argv[i]) > 0)
+			if (atoi(argv[i]) > 0 && (atoi(argv[i]) % 10 != '\0'))
 			{
 				sum += atoi(argv[i]);
 			}
