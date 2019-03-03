@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <ctype.h>
 /**
  * main -  adds positive numbers.
  * @argc: integer that contains the count of arguments
@@ -12,13 +12,24 @@ int main(int argc, char *argv[])
 {
 	int sum = 0;
 	int i = 1;
-	
+	int j = 0;
+
 	if (argc > 1)
 	{
 		while (argv[i] != '\0')
 		{
-			if (atoi(argv[i]) > 0 && (atoi(argv[i]) % 10 != '\0'))
+			if (atoi(argv[i]) > 0)
 			{
+				j = 0;
+				while (argv[i][j] != '\0')
+				{
+					if (isdigit(argv[i][j]) == 0)
+					{
+						printf("Error\n");
+						return (1);
+					}
+					j++;
+				}
 				sum += atoi(argv[i]);
 			}
 			else
