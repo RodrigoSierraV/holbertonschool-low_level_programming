@@ -17,15 +17,15 @@ char *_strdup(char *str)
 	unsigned int j = 0;
 
 	if (str == NULL)
-	{
 		return (NULL);
-	}
 	while (len != '\0')
 	{
 		len = *(str + i);
 		i++;
 	}
 	copy = malloc(i * sizeof(char));
+	if (copy == NULL)
+		return (NULL);
 	while (j < i)
 	{
 		copy[j] = str[j];
