@@ -16,9 +16,9 @@ char *_strdup(char *str)
 	unsigned int j = 0;
 
 	if (str == NULL)
-	  {
-	    return (NULL);
-	  }
+	{
+		return (NULL);
+	}
 	while (len != '\0')
 	{
 		len = *(str + i);
