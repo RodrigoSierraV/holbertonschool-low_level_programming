@@ -1,0 +1,1 @@
+This project is about the dynamic allocation of memory in C with the use of functions malloc and free. Every commit will have the purpose of each program (function).
