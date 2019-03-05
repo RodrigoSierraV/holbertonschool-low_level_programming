@@ -11,20 +11,24 @@
 char *_strdup(char *str)
 {
 	char *copy;
-	char len = *str;
+	char len = '0';
 	unsigned int i = 0;
 	unsigned int j = 0;
 
+	if (str == NULL)
+	  {
+	    return (NULL);
+	  }
 	while (len != '\0')
 	{
 		len = *(str + i);
 		i++;
 	}
-	if (i == 0)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	copy = malloc((i - 1) * sizeof(char));
+	copy = malloc(i * sizeof(char));
 	while (j < i)
 	{
 		copy[j] = str[j];
