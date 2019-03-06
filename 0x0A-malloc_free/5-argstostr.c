@@ -10,25 +10,41 @@
  */
 char *argstostr(int ac, char **av)
 {
-  
-  int i = 0, j = 0;
-  char **aux;
 
-  if (ac == 0)
-    return (NULL);
-  aux = malloc(ac * sizeof(char));
-  if (aux == NULL)
-    return (NULL);
-  printf("%d %s\n", ac, *av);
-  while (i < ac)
-    {
-      j = 0;
-      while (*(*(av + i) + j) != '\0')
+	int i = 0, j = 0, k = 0;
+	char *aux;
+
+	if (ac == 0 || av == NULL)
+		return (NULL);
+	while (i < ac)
 	{
-	  *(*(aux + i) + j) = *(*(av + i) + j);
-	j++;
+		j = 0;
+		while (av[i][j])
+		{
+			k++;
+			j++;
+		}
+		i++;
+		k++;
 	}
-      i++;
-    }
-  return (*aux);
+	aux = malloc(k * sizeof(char *));
+	if (aux == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	k = 0;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			aux[k] = av[i][j];
+			k++;
+			j++;
+		}
+		aux[k] = '\n';
+		i++;
+		k++;
+	}
+	return (aux);
 }
