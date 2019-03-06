@@ -42,7 +42,7 @@ char *str_concat(char *s1, char *s2)
 		copy[k] = s1[k];
 		k++;
 	}
-	while (k < ((i - 1) + (j - 1))
+	while (k < ((i - 1) + j)
 	{
 		copy[k] = s2[l];
 		k++;
