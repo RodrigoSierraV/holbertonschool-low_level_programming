@@ -11,29 +11,32 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *copy;
-	char len1 = '0';
-	char len2 = '0';
-	unsigned int i = 0;
-	unsigned int j = 0;
-	unsigned int k = 0;
-	unsigned int l = 0;
+	char *copy, len1 = '0', len2 = '0';
+	unsigned int i = 0, j = 0, k = 0, l = 0;
 
-	if (s1 == NULL && s2 == NULL)
+	if (s1 == NULL)
 	{
-		return (NULL);
+		s1 = "";
+		i = 1;
 	}
-	while (len1 != '\0')
+	else
 	{
-		len1 = *(s1 + i);
-		i++;
+		for (i = 0; len1 != '\0'; i++)
+			len1 = *(s1 + i);
 	}
-	while (len2 != '\0')
+	if (s2 == NULL)
 	{
-		len2 = *(s2 + j);
-		j++;
+		s2 = "";
+		j = 1;
+	}
+	else
+	{
+		for (j = 0; len2 != '\0'; j++)
+			len2 = *(s2 + j);
 	}
 	copy = malloc((i + j) * sizeof(char));
+	if (copy == NULL)
+		return (NULL);
 	while (k < (i - 1))
 	{
 		copy[k] = s1[k];
