@@ -26,7 +26,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	copy = malloc((i + n + 1) * sizeof(char));
 	if (copy == NULL)
 	{
-		free(str);
+		free(copy);
 		return (NULL);
 	}
 	while (k < (i - 1))
