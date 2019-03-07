@@ -1,0 +1,1 @@
+This projec is about the use of functions malloc, free and exit. Every commit will have the information about the purpose of each program. 
