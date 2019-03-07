@@ -23,18 +23,18 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 	for (j = 0; len2 != '\0'; j++)
 		len2 = *(s2 + j);
-	copy = malloc((i + n + 1) * sizeof(char));
+	copy = malloc((i + n) * sizeof(char));
 	if (copy == NULL)
 	{
 		free(copy);
 		return (NULL);
 	}
-	while (k < i)
+	while (k < (i - 1))
 	{
 		copy[k] = s1[k];
 		k++;
 	}
-	while (k < (i + n))
+	while (k < (i - 1 + n))
 	{
 		copy[k] = s2[l];
 		k++;
