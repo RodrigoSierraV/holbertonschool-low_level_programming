@@ -29,12 +29,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		free(copy);
 		return (NULL);
 	}
-	while (k < (i - 1))
+	while (k < i)
 	{
 		copy[k] = s1[k];
 		k++;
 	}
-	while (k < ((i - 1) + n))
+	while (k < (i + n))
 	{
 		copy[k] = s2[l];
 		k++;
