@@ -24,9 +24,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	while (i < nmemb)
 	{
 		if (size == 1)
-		  *((char*)array + i) = 0;
+			*((char *)array + i) = 0;
 		if (size == 4)
-		  *((int*)array + i) = 0;
+			*((int *)array + i) = 0;
 		i++;
 	}
 	return (array);
