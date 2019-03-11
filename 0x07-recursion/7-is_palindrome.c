@@ -22,19 +22,18 @@ int lenght(char *s, int len)
  * @count: counter of no coincidences
  * Return: number of no coincidences
  */
-int compare(char *s, int leng, int head, int count)
+int compare(char *s, int leng, int head, int count, int numb)
 {
-	if (leng / 2)
-	{
-		if (*(s + head) == *(s + (leng - 1)))
-			count = 0;
-		else
-			count += 1;
-		head++;
-		leng--;
-		compare(s, leng, head, count);
-	}
-	return (count);
+	if (head == numb)
+		return (count);	
+	if (*(s + head) == *(s + (leng - 1)))
+	  count = 0;
+	else
+	  count += 1;
+	printf("count:%d", count);
+	head++;
+	leng--;
+	return (compare(s, leng, head, count, numb));
 }
 /**
  * is_palindrome - returns 1 if a string is a palindrome and 0 if not.
@@ -43,10 +42,12 @@ int compare(char *s, int leng, int head, int count)
  */
 int is_palindrome(char *s)
 {
-	int len = 0, leng = 0, head = 0, count = 0, comp = 0;
+  int len = 0, leng = 0, head = 0, count = 0, comp = 0, numb = 0;
 
 	leng = lenght(s, len);
-	comp = compare(s, leng, head, count);
+	numb = leng / 2;
+	comp = compare(s, leng, head, count, numb);
+	printf("comp:%d compare:%d\n", comp, compare(s, leng, head, count, numb));
 	if (comp == 0)
 		return (1);
 	else
