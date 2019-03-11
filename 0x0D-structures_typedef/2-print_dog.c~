@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include "dog.h"
+
+/**
+ * print_dog - initialize a variable of type struct dog
+ * @d: pointer to struct
+ *
+ * Return: Nothing
+ */
+void print_dog(struct dog *d)
+{
+	printf("Name: %s\nAge: %.1f\nOwner: %s\n", (*d).name, (*d).age, (*d).owner);
+}
