@@ -1,31 +1,41 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * endpointer - finds length of s
+ * lenght - finds length of s
  * @s: pointed string to measure
  * @len: counter of characters in s
  * Return: number of characters in s
  */
-char *rever(char *s, char *rev)
+int lenght(char *s, int len)
 {
-	if (*s != '\0')
-	{
-	  printf("%c", *(s + 1));
-	  rever((s + 1), rev);
-		*rev = *s; 
-	}
-	printf("%s", rev);
-	return (rev);
+	if (!*s)
+		return (len);
+	len++;
+	s++;
+	return (lenght(s, len));
 }
-/**int compare(char *s, int length, int len, char inicio, char fin)
+/**
+ * compare - compares characters in s
+ * @s: pointed string to compare
+ * @leng: number of characters in s
+ * @head: first characters in s
+ * @count: counter of no coincidences
+ * Return: number of no coincidences
+ */
+int compare(char *s, int leng, int head, int count)
 {
-  inicio = *s;
-  fin = *(s + endpointer(s, len);
-	  s++;
-
-  printf("%d %d\n %s\n", length, len, s);
-  return (0);
-}*/
+	if (leng / 2)
+	{
+		if (*(s + head) == *(s + (leng - 1)))
+			count = 0;
+		else
+			count += 1;
+		head++;
+		leng--;
+		compare(s, leng, head, count);
+	}
+	return (count);
+}
 /**
  * is_palindrome - returns 1 if a string is a palindrome and 0 if not.
  * @s: pointed string to compare
@@ -33,10 +43,12 @@ char *rever(char *s, char *rev)
  */
 int is_palindrome(char *s)
 {
-	
-	
-	char *rev = 0;
-	
-	rever(s, rev);
-	return (0);
+	int len = 0, leng = 0, head = 0, count = 0, comp = 0;
+
+	leng = lenght(s, len);
+	comp = compare(s, leng, head, count);
+	if (comp == 0)
+		return (1);
+	else
+		return (0);
 }
