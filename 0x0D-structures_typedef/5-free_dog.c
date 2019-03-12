@@ -3,12 +3,10 @@
 #include "dog.h"
 
 /**
- * new_dog - creates a new dog.
+ * free_dog - frees dogs.
  *
- * @name: name of the dog
- * @age: age of the dog
- * @owner: name of the owner of the dog
- * Return: pointer to newdog, type dog_t
+ * @d: pointer to dog characteristics
+ * Return: nothing
  */
 void free_dog(dog_t *d)
 {
