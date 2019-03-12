@@ -1,0 +1,1 @@
+This project is about to create macros and how to use them. Each commit will have the purpose of each program to explain its functionality. 
