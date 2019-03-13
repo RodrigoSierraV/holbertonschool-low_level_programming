@@ -1,0 +1,1 @@
+This project is about function pointers and it's uses. Every commit pushed to Github will have the purpose of each program.  
