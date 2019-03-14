@@ -1,5 +1,12 @@
 #ifndef _3_CALC_H_
 #define _3_CALC_H_
+/**
+ * struct op - types needed for simple operations
+ * @op: pointer to sign of the operation
+ * @f: pointer to function of the operation
+ * Description: this structure put together integers, sign
+ * and pointer to the operation to perfom
+ */
 typedef struct op
 {
 	char *op;
