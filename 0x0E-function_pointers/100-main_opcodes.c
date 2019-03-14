@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	void *arguments;
 
 	arguments = (void *)&main;
-	if (argc > 2)
+	if (argc != 2)
 	{
 	printf("Error\n");
 	exit(2);
