@@ -1,0 +1,1 @@
+This project shows the the use of variadic functions and va_start, va_arg and va_end macros and why and when to use const type qualifier.
