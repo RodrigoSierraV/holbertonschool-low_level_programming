@@ -28,8 +28,10 @@ void print_all(const char * const format, ...)
 			case 's':
 				string = va_arg(arguments, char*);
 				if (string == NULL)
-				printf("(nil)");
-				else
+				{
+					printf("(nil)");
+					break;
+				}
 				printf("%s", string);
 				break;
 			case 'f':
