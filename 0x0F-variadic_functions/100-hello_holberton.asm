@@ -1,23 +1,14 @@
-	;;  stack protection
-	%ifidn __OUTPUT_FORMAT__,elf64
-	section .note.GNU-stack noalloc noexec nowrite progbits
-	%endif
+global    main
 
-	default rel
-	extern	puts
-	global	main
+	          section   .text
+main:	   mov       rax, 1	; system call for write
+	          mov       rdi, 1 ; file handle 1 is stdout
+	          mov       rsi, message ; address of string to output
+	          mov       rdx, 17	 ; number of bytes
+	          syscall		 ; invoke operating system to do the write
+	          mov       rax, 60	 ; system call for exit
+	          xor       rdi, rdi	 ; exit code 0
+	          syscall		 ; invoke operating system to exit
 
-	section .text
-main:
-	mov  rdi, msg
-	call puts WRT ..plt
-
-	xor  eax,eax
-	ret
-
-	section .rodata
-
-msg:		db `Hello, Holberton`,0
-
-	;; section .bss
-	;; section .data
+	          section   .data
+message:	  db        "Hello, Holberton", 10 ; note the newline at the end
