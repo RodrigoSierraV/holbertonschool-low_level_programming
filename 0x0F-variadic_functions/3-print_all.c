@@ -9,13 +9,11 @@
 void print_all(const char * const format, ...)
 {
 	va_list arguments;
-	unsigned int i = 0, len = 0, ifno = 0;
+	unsigned int i = 0, ifno = 0;
 	char *string;
 
-	while (format[len])
-		len++;
 	va_start(arguments, format);
-	while (i < len)
+	while (format && format[i])
 	{
 		switch (format[i])
 		{
@@ -40,7 +38,7 @@ void print_all(const char * const format, ...)
 			default:
 				ifno = 1;
 		}
-		if (i < len - 1 && ifno == 0)
+		if (format[i + 1] && ifno == 0)
 			printf(", ");
 		ifno = 0;
 		i++;
