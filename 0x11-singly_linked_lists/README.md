@@ -1,0 +1,1 @@
+This project is about linked lists, build and use of them. Every commit will have the purpose of each function. 
