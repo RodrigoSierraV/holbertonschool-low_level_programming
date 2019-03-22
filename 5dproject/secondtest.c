@@ -79,14 +79,12 @@ int (*get_op_func(char *s))(va_list str)
 	return(ops[i].f);
       i++;
     }
-  printf("Error1\n");
-  exit(99);
   return (NULL);
 }
 int _printf(const char *format, ...)
 {
   va_list arguments;
-  unsigned int i = 0, b = 0;
+  unsigned int i = 0, b = 0, c = 0;
   char id, letter[] = {'c', 's', 'd', 'i'};
 
   va_start(arguments, format);
@@ -99,6 +97,7 @@ int _printf(const char *format, ...)
 	  if (format[i + 1] == '%')
             {
               _putchar(format[i + 1]);
+	      c -= 1;
               i += 1;
             }
 	  else if (format[i + 1] != '%')
@@ -109,7 +108,7 @@ int _printf(const char *format, ...)
 		  if(format[i + 1] == letter[b])
 		    {
 		      id = format[i + 1];
-		      (*get_op_func(&id))(arguments);
+		      c += (*get_op_func(&id))(arguments) - 2;
 		      i += 1;
 		    }
 		b++;
@@ -123,20 +122,21 @@ int _printf(const char *format, ...)
 	_putchar(format[i]);
     }
   va_end(arguments);
-  return(i);
+  return(i + c);
 }
 int main(void)
 {
   int len;
   int len2;
 
-  len = _printf("Let's try to printf a simple sentence.\n");
-  len2 = printf("Let's try to printf a simple sentence.\n");
-  _printf("m%  ");
+  len = _printf("Let's try to%% printf a simple sentence.\n");
+  len2 = printf("Let's try to%% printf a simple sentence.\n");
   printf("Length:[%d, %i]\n", len, len2);
-  _printf("Length:[%d, %i]\n", len + len2, len2 - len2);
   printf("Character:[%c]\n", 'H');
   _printf("String:[%s]\n", "I am a string !");
   printf("String:[%s]\n", "I am a string !");
+  len = _printf("%%\n");
+  len2 = printf("%%\n");
+  printf("Length:[%d, %i]\n", len, len2);
   return (0);
 }
