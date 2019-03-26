@@ -12,6 +12,8 @@ void free_listint2(listint_t **head)
 {
 	listint_t *current = *head, *deleted;
 
+	if (head == NULL)
+		return;
 	while (current)
 	{
 		deleted = *head;
