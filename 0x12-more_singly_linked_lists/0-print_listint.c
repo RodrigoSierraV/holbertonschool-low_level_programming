@@ -13,8 +13,6 @@ size_t print_listint(const listint_t *h)
 	listint_t *current = (listint_t *)h;
 	int nodes = 0;
 
-	if (h == NULL)
-		return (0);
 	while (current)
 	{
 		printf("%d\n", current->n);
