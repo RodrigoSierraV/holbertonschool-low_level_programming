@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
-
-size_t findloop(listint_t *, listint_t *, listint_t *, size_t nodes);
+listint_t *findloop(listint_t *head, listint_t *current, listint_t *fast);
 /**
  * print_listint_safe - prints all the elements of a listint_t list.
  * @head: pointer to the given listint.
@@ -10,20 +9,37 @@ size_t findloop(listint_t *, listint_t *, listint_t *, size_t nodes);
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	listint_t *current = (listint_t *)head, *fast = (listint_t *)head;
+	listint_t *current = (listint_t *)head, *fast = (listint_t *)head, *loop;
 	size_t nodes = 0;
 
-	return (findloop((listint_t *)head, current, fast, nodes));
+	loop = findloop((listint_t *)head, current, fast);
+	if (loop == NULL)
+		return (print_listint(head));
+	while (head != loop)
+	{
+	printf("[%p] %d\n", (void *)head, head->n);
+	nodes++;
+	head = head->next;
+	}
+	printf("[%p] %d\n", (void *)head, head->n);
+	nodes++;
+	fast = loop->next;
+	do {
+		printf("[%p] %d\n", (void *)fast, fast->n);
+		fast = fast->next;
+		nodes++;
+	} while (loop != fast);
+	printf("-> [%p] %d\n", (void *)loop, loop->n);
+	return (nodes);
 }
 /**
  * findloop - finds a loop in a linked list.
  * @head: pointer to the given listint.
  * @current: pointer to the given listint.
  * @fast: pointer to the given listint.
- * @nodes: number of nodes.
  * Return: an int with the number of nodes in the list.
  */
-size_t findloop(listint_t *head, listint_t *current, listint_t *fast, size_t nodes)
+listint_t *findloop(listint_t *head, listint_t *current, listint_t *fast)
 {
 while (current && fast && fast->next)
 {
@@ -31,28 +47,30 @@ while (current && fast && fast->next)
 	fast = fast->next->next;
 	if (current == fast)
 	{
-		if (current != head)
-		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			nodes++;
-			head = head->next;
-			current = head;
-			fast = head;
-			findloop(head, current, fast, nodes);
-		}
-		else
-		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			nodes++;
-			fast = fast->next;
-			do {
-				printf("[%p] %d\n", (void *)fast, fast->n);
-				fast = fast->next;
-				nodes++;
-			} while (current != fast);
-			return (nodes);
-		}
+		if (current == head)
+			return (current);
+		head = head->next;
+		current = head;
+		fast = head;
+		findloop(head, current, fast);
 	}
 }
-return (nodes);
+return (NULL);
+}
+/**
+ * print_listint - prints all the elements of a listint_t list.
+ * @h: pointer to the given listint.
+ * Return: an int with the number of nodes in the list.
+ */
+size_t print_listint(const listint_t *h)
+{
+	size_t nodes = 0;
+
+	while (h != NULL)
+	{
+		printf("[%p] %d\n", (void *)h, h->n);
+		nodes++;
+		h = h->next;
+	}
+	return (nodes);
 }
