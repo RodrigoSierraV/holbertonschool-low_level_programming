@@ -12,6 +12,8 @@ size_t print_listint_safe(const listint_t *head)
 	listint_t *current = (listint_t *)head, *fast = (listint_t *)head, *loop;
 	size_t nodes = 0;
 
+	if (!head)
+		exit(98);
 	loop = findloop((listint_t *)head, current, fast);
 	if (loop == NULL)
 		return (print_listint(head));
