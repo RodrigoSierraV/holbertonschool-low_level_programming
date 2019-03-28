@@ -10,8 +10,8 @@ void print_binary(unsigned long int n)
 {
 	int bit, bin = 0;
 
-	if (!n)
-		return;
+	if (n)
+	{
 	for (bit = 31; bit >= 0; bit--)
 	{
 		bin = n >> bit & 1;
@@ -27,5 +27,11 @@ void print_binary(unsigned long int n)
 	{
 		bin = n >> bit & 1;
 		_putchar(bin + '0');
+	}
+	}
+	else
+	{
+		_putchar('0');
+		return;
 	}
 }
