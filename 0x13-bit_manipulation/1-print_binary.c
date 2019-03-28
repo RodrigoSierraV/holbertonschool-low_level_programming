@@ -10,6 +10,8 @@ void print_binary(unsigned long int n)
 {
 	int bit, bin = 0;
 
+	if (!n)
+		return;
 	for (bit = 31; bit >= 0; bit--)
 	{
 		bin = n >> bit & 1;
