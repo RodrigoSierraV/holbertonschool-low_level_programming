@@ -13,7 +13,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	int bit, bit_n = 0, bit_m = 0;
 	unsigned int change = 0;
 
-	for (bit = 31; bit >= 0; bit--)
+	for (bit = 63; bit >= 0; bit--)
 	{
 		bit_n = n >> bit & 1;
 		bit_m = m >> bit & 1;
