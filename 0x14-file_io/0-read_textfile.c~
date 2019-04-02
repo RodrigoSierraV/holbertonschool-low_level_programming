@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "holberton.h"
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+void *_calloc(size_t nmemb, size_t size);
+/**
+ * read_textfile - reads a text file and prints
+ * it to the POSIX standard output..
+ * @filename: pointer to the text file
+ * @letters: number of bytes to read
+ * Return: number of chars printed.
+ */
+ssize_t read_textfile(const char *filename, size_t letters)
+{
+	int topen, toread, towrite;
+	char *buff;
+
+	if (!filename)
+		return (0);
+	topen = open(filename, O_RDONLY);
+	if (topen == -1)
+		return (0);
+	buff = _calloc((letters), sizeof(char));
+	printf("open:%d ", topen);
+	if (buff == NULL)
+	{
+		free(buff);
+		return (0);
+	}
+	len = 0;
+	toread = read(topen, buff, letters);
+	if (toread == -1)
+		return (0);
+	buff[letters] = '\0'; 
+	towrite = write(1 , buff, toread);
+	return (towrite);
+}
+/**
+ * _calloc - allocates memory for an array, using malloc.
+ * @nmemb: number of elements
+ * @size: the size of bytes of each element
+ *
+ * Return: pointer to the allocated memory.
+ */
+void *_calloc(size_t nmemb, size_t size)
+{
+	void *array;
+	unsigned int i = 0;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	array = malloc(nmemb * size);
+	if (array == NULL)
+	{
+		free(array);
+		return (NULL);
+	}
+	while (i < nmemb)
+	{
+		if (size == 1)
+			*((char *)array + i) = '0';
+		if (size == 4)
+			*((int *)array + i) = 0;
+		i++;
+	}
+	return (array);
+}
