@@ -23,7 +23,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	topen = open(filename, O_RDONLY);
 	if (topen == -1)
 		return (0);
-	buff = _calloc((letters), sizeof(char));
+	buff = malloc(letters * sizeof(char));
 	if (buff == NULL)
 	{
 		free(buff);
@@ -36,35 +36,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	towrite = write(STDOUT_FILENO, buff, toread);
 	if (towrite == -1 || towrite != toread)
 		return (0);
+	close(topen);
 	return (towrite);
-}
-/**
- * _calloc - allocates memory for an array, using malloc.
- * @nmemb: number of elements
- * @size: the size of bytes of each element
- *
- * Return: pointer to the allocated memory.
- */
-void *_calloc(size_t nmemb, size_t size)
-{
-	void *array;
-	unsigned int i = 0;
-
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-	array = malloc(nmemb * size);
-	if (array == NULL)
-	{
-		free(array);
-		return (NULL);
-	}
-	while (i < nmemb)
-	{
-		if (size == 1)
-			*((char *)array + i) = '0';
-		if (size == 4)
-			*((int *)array + i) = 0;
-		i++;
-	}
-	return (array);
 }
