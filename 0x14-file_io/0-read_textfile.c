@@ -24,18 +24,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (topen == -1)
 		return (0);
 	buff = _calloc((letters), sizeof(char));
-	printf("open:%d ", topen);
 	if (buff == NULL)
 	{
 		free(buff);
 		return (0);
 	}
-	len = 0;
 	toread = read(topen, buff, letters);
 	if (toread == -1)
 		return (0);
 	buff[letters] = '\0';
-	towrite = write(1, buff, toread);
+	towrite = write(STDOUT_FILENO, buff, toread);
+	if (towrite == -1 || towrite != toread)
+		return (0);
 	return (towrite);
 }
 /**
