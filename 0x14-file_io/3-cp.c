@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	}
 	if (!argv[1])
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file1 %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	tocreate = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	}
 	topen = open(argv[1], O_RDONLY);
 	if (topen == -1)
-	{		dprintf(STDERR_FILENO, "Error: Can't read from file2 %s\n", argv[1]);
+	{		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	toread = read(topen, buf, 1024);
