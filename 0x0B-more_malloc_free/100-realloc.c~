@@ -1,0 +1,29 @@
+#include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/**
+ * simple_print_buffer - prints buffer in hexa
+ * @buffer: the address of memory to print
+ * @size: the size of the memory to print
+ *
+ * Return: Nothing.
+ */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	char *real, *copy = (char *)ptr;
+	int i = 0;
+
+	if (old_size == new_size)
+		return (ptr);
+	real = malloc(new_size);
+	while (copy[i])
+	{
+		real[i] = copy[i];
+		i++;
+	}
+	real[i] = '\0';
+	free(ptr);
+	return (real);
+}
