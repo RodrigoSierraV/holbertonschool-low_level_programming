@@ -10,27 +10,39 @@
 char **strtow(char *str)
 {
 	char **aux;
-	int i = 0, j = 0, len = 0, letters = 0, words = 0, k = 0;
+	int i = 0, j = 0, l = 0, letters = 0, words = 0, k = 0;
 
-	while (str[len])
+	while (str[l])
 	{
-		if (str[len] != 32 && str[len + 1] == 32)
+		if (str[l] != 32 && str[l + 1] == 32)
 		words++;
-		len++;
+		l++;
 	}
 	aux = (char **)malloc((words + 1) * sizeof(char *));
-	len = 0;
-	while (str[len])
+	if (aux == NULL)
+		return (NULL);
+	l = 0;
+	while (str[l])
 	{
-		if (str[len] != 32)
+		if (str[l] != 32)
 			letters++;
-		if (str[len] != 32 && str[len + 1] == 32)
+		if (str[l] != 32 && (str[l + 1] == 32 || str[l + 1] == '\0'))
 		{
 			aux[i] = (char *)malloc((letters + 1) * sizeof(char));
+			if (aux[i] == NULL)
+			{
+				while (aux[i])
+				{
+					free(aux[i]);
+					i--;
+				}
+				free(aux);
+				return (NULL);
+			}
 			letters = 0;
 			i++;
 		}
-		len++;
+		l++;
 	}
 	i = 0;
 	while (str[k])
@@ -40,7 +52,7 @@ char **strtow(char *str)
 			*(*(aux + i) + j) = str[k];
 			j++;
 		}
-		if (str[k] != 32 && str[k + 1] == 32)
+		if (str[k] != 32 && (str[k + 1] == 32 || str[k + 1] == '\0'))
 		{
 			*(*(aux + i) + (j + 1)) = '\0';
 			i++;
@@ -48,5 +60,6 @@ char **strtow(char *str)
 		}
 		k++;
 	}
+	*(aux + i) = NULL;
 	return (aux);
 }
