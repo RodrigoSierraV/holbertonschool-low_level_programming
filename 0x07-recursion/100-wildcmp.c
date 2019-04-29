@@ -16,12 +16,12 @@ int lenght(char *s, int len)
 }
 /**
  * compare - compares characters in s
- * @s: pointed string to compare
- * @leng: number of characters in s
- * @head: first characters in s
- * @count: counter of no coincidences
- * @numb: number of comparisons
- * Return: number of no coincidences
+ * @s1: first pointed string to compare
+ * @s2: second pointed string to compare
+ * @len1: number of characters in s1
+ * @comp: number of comparisons
+ * @count: counter for coincidences
+ * Return: number of coincidences
  */
 int compare(char *s1, char *s2, int len1, int count, int comp)
 {
@@ -35,8 +35,9 @@ int compare(char *s1, char *s2, int len1, int count, int comp)
 	return (compare(s1, s2, len1, count, comp));
 }
 /**
- * main - check the code for Holberton School students.
- *
+ * wildcmp - compares two strings
+ * @s1: first pointed string
+ * @s2: second pointed string
  * Return: Always 0.
  */
 int wildcmp(char *s1, char *s2)
