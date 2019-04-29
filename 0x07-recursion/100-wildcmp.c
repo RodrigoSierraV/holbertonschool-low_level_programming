@@ -1,0 +1,53 @@
+#include "holberton.h"
+#include <stdio.h>
+/**
+ * lenght - finds length of s
+ * @s: pointed string to measure
+ * @len: counter of characters in s
+ * Return: number of characters in s
+ */
+int lenght(char *s, int len)
+{
+	if (!*s)
+		return (len);
+	len++;
+	s++;
+	return (lenght(s, len));
+}
+/**
+ * compare - compares characters in s
+ * @s: pointed string to compare
+ * @leng: number of characters in s
+ * @head: first characters in s
+ * @count: counter of no coincidences
+ * @numb: number of comparisons
+ * Return: number of no coincidences
+ */
+int compare(char *s1, char *s2, int len1, int count, int comp)
+{
+	if (comp == len1)
+		return (count);
+	if (*(s1 + comp) == *(s2 + comp))
+		count = 0;
+	else
+		count += 1;
+	comp++;
+	return (compare(s1, s2, len1, count, comp));
+}
+/**
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0.
+ */
+int wildcmp(char *s1, char *s2)
+{
+	int len1 = 0, len2 = 0, comp = 0, count = 0;
+
+	len1 = lenght(s1, len1);
+	len2 = lenght(s2, len2);
+	comp = compare(s1, s2, len1, count, comp);
+	if (comp  == 0)
+		return (1);
+	else
+		return (0);
+}
