@@ -1,0 +1,1 @@
+This project is about creation, and use of doubly linked lists in C. Each function will have a commit that explain its purpose.This project is about creation, and use of doubly linked lists in C. Each function will have a commit that explain its purpose.
