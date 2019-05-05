@@ -1,12 +1,12 @@
 #include "lists.h"
 void main(void)
 {
-	int a = 0, b, number = 0, i = 0, pal = 0, test = 0;
+	int a = 100, b, number = 0, i = 0, pal = 0, test = 0;
 	int store[6], comp = 0, palindrome = 0, z = 0;
 
 	while (a < 1000)
 	{
-		b = 0;
+		b = 100;
 		while (b < 1000)
 		{
 			number = a * b;
@@ -36,5 +36,5 @@ void main(void)
 		}
 		a++;
 	}
-	printf("pal:%d a:%d b:%d\n", palindrome, a, b);
+	printf("%d", palindrome);
 }
