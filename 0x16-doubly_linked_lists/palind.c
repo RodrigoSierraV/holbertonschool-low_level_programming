@@ -1,13 +1,13 @@
 #include "lists.h"
 void main(void)
 {
-	int a = 100, b, number = 0, i = 0, pal = 0, test = 0;
+	int a = 999, b, number = 0, i = 0, pal = 0, test = 0;
 	int store[6], comp = 0, palindrome = 0, z = 0;
 
-	while (a < 1000)
+	while (a > 100)
 	{
-		b = 100;
-		while (b < 1000)
+		b = 999;
+		while (b > 100)
 		{
 			number = a * b;
 			test = number;
@@ -31,10 +31,13 @@ void main(void)
 				z--;
 			}
 			if (comp == i / 2)
-				palindrome = number;
-			b++;
+			{
+				if (number > palindrome)
+					palindrome = number;
+			}
+			b--;
 		}
-		a++;
+		a--;
 	}
-	printf("%d", palindrome);
+	printf("%d\n", palindrome);
 }
