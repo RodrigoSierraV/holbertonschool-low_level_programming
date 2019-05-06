@@ -27,7 +27,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (add_dnodeint(h, n));
 	for (len = 0; aux; len++)
 		aux = aux->next;
-printf("len:%d\n", len);
 	aux = *h;
 	while (aux && i != idx)
 	{
@@ -36,7 +35,6 @@ printf("len:%d\n", len);
 	}
 	if (idx == len - 1)
 		return (add_dnodeint_end(h, n));
-	printf("idx:%d\n", idx);
 	if (aux == NULL)
 		return (NULL);
 	new->next = aux;
