@@ -1,0 +1,32 @@
+#include "hash_tables.h"
+
+/**
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
+
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+{
+	unsigned long int keynumber;
+	hash_node_t new;
+
+	if (!ht || !ht->array || !key || strlen(key) == 0)
+		return (0);
+	keynumber = key_index(key);
+	if (!ht->array[keynumber])
+        {
+                free(ht);
+                return (0);
+        }
+	new = (hash_node_t *)malloc(sizeof(hash_node_t));
+	if (!new)
+	{
+		free(ht);
+		return(0);
+	}
+	new->value = value;
+	new->key = keynumber;
+	new->next = NULL;
+
+}
