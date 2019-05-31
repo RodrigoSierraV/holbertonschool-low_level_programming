@@ -1,9 +1,9 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_create - creates a hash table.
- * @size: size of the array if the table.
- * Return: Always EXIT_SUCCESS.
+ * hash_djb2 - hash function implementing the djb2 algorithm..
+ * @str: char to search.
+ * Return: hash number.
  */
 
 unsigned long int hash_djb2(const unsigned char *str)
