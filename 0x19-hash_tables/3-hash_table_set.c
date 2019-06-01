@@ -17,11 +17,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->size == 0)
 		return (0);
 	keynumber = key_index((unsigned char *)key, ht->size);
-	if (!(new = (hash_node_t *)malloc(sizeof(hash_node_t))))
+	new = (hash_node_t *)malloc(sizeof(hash_node_t));
+	if (!new)
 		return (0);
-	if (!(new->value = strdup(value)))
+	new->value = strdup(value);
+	if (!new->value)
 		return (0);
-	if (!(new->key = strdup(key)))
+	new->key = strdup(key)
+	if (!new->key)
 		return (0);
 	new->next = NULL;
 	if (!ht->array[keynumber])
