@@ -1,9 +1,11 @@
 #include "hash_tables.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ * hash_table_set - adds an element to the hash table.
+ * @ht: hash table
+ * @key: key to add
+ * @value: value to add
+ * Return: 1 or 0 in case of failure.
  */
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
