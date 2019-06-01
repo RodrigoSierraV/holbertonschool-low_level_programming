@@ -1,9 +1,10 @@
 #include "hash_tables.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ * hash_table_get - function that retrieves a value associated with a key.
+ * @ht: hash table
+ * @key: key to search
+ * Return: pointer to value of key or NULL.
  */
 
 char *hash_table_get(const hash_table_t *ht, const char *key)
