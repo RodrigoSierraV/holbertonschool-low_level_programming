@@ -9,24 +9,25 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int keynumber;
-	hash_node_t new;
+	hash_node_t *new;
 
-	if (!ht || !ht->array || !key || strlen(key) == 0)
+	if (!ht || !ht->array || !key || strlen(key) == 0 || !value ||
+		ht->size == 0)
 		return (0);
-	keynumber = key_index(key);
-	if (!ht->array[keynumber])
-        {
-                free(ht);
-                return (0);
-        }
-	new = (hash_node_t *)malloc(sizeof(hash_node_t));
-	if (!new)
-	{
-		free(ht);
-		return(0);
-	}
-	new->value = value;
-	new->key = keynumber;
+	keynumber = key_index((unsigned char *)key, ht->size);
+	if (!(new = (hash_node_t *)malloc(sizeof(hash_node_t))))
+		return (0);
+	if (!(new->value = strdup(value)))
+		return (0);
+	if (!(new->key = strdup(key)))
+		return (0);
 	new->next = NULL;
-
+	if (!ht->array[keynumber])
+		ht->array[keynumber] = new;
+	else
+	{
+		new->next = ht->array[keynumber]->next;
+		ht->array[keynumber] = new;
+	}
+	return (1);
 }
