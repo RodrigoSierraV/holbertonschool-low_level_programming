@@ -1,9 +1,9 @@
 #include "hash_tables.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ * hash_table_print - prints a hash table.
+ * @ht: hash table to print.
+ * Return: nothing.
  */
 
 void hash_table_print(const hash_table_t *ht)
