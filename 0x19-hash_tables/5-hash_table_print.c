@@ -26,8 +26,8 @@ void hash_table_print(const hash_table_t *ht)
 				aux = aux->next;
 				if (aux)
 					printf(",");
+				print = 1;
 			}
-			print = 1;
 		}
 		pos++;
 		if (ht->array[pos] && print == 1)
