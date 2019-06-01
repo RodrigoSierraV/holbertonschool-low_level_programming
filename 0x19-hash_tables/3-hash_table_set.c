@@ -41,13 +41,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (!new->key)
 			return (0);
 		new->next = NULL;
-		if (!ht->array[keynumber])
-			ht->array[keynumber] = new;
-		else
-		{
-			new->next = ht->array[keynumber]->next;
-			ht->array[keynumber] = new;
-		}
+		if (ht->array[keynumber])
+			new->next = ht->array[keynumber];
+		ht->array[keynumber] = new;
 	}
 	return (1);
 }
