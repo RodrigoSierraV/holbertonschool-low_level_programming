@@ -25,13 +25,13 @@ void hash_table_print(const hash_table_t *ht)
 				printf("'%s': '%s'", aux->key, aux->value);
 				aux = aux->next;
 				if (aux)
-					printf(",");
+					printf(", ");
 				print = 1;
 			}
 		}
 		pos++;
 		if (ht->array[pos] && print == 1)
-			printf(",");
+			printf(", ");
 	}
 	printf("}\n");
 }
