@@ -15,10 +15,10 @@ if __name__ == "__main__":
     print(island_perimeter(grid))
 
     grid = [
-        [1, 0, 0, 0, 0, 1],
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
-        [1, 0, 0, 0, 0, 1]
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0]
     ]
     print(island_perimeter(grid))
