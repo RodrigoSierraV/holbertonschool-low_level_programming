@@ -3,6 +3,8 @@
 /**
  * print_level - print all the nodes of a certain level
  * @tree: pointer to the node to measure the height
+ * @func: Pointer to a function to call for each node.
+ * @level: floor where the nodes are located
  * Return: tree is NULL, return 0
  */
 void print_level(const binary_tree_t *tree, int level, void (*func)(int))
@@ -46,6 +48,7 @@ size_t height_(const binary_tree_t *tree)
  * binary_tree_levelorder - function that goes through a binary tree using
  * level-order traversal
  * @tree: pointer to the node to measure the height
+ * @func: Pointer to a function to call for each node.
  * Return: Nothing
  */
 
