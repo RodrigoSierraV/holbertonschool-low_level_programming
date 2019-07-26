@@ -1,46 +1,44 @@
 #include "binary_trees.h"
-binary_tree_t *LCA(binary_tree_t *root, binary_tree_t *f, binary_tree_t *s);
+
 /**
- * binary_tree_is_full - function that checks if a binary tree is full
- * @tree: pointer to the node to count the number of nodes
- * Return: 0 or 1 if tree is full
+ * bta - helper function. Finds the ancestor of two nodes
+ * @head: Root of the tree
+ * @first: pointer to the first node
+ * @second: pointer to the second node
+ * Return: a pointer to the lowest common ancestor node of the two given nodes
+ * If no common ancestor was found, your function returns NULL
  */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
-					const binary_tree_t *second)
+
+const binary_tree_t *bta(const binary_tree_t *head, const binary_tree_t *first,
+						 const binary_tree_t *second)
 {
-	binary_tree_t *root = (binary_tree_t*)first;
-printf("quehps%d\n", root->n);
-	if (!first || !second)
+	if (head == NULL)	/*Is there a tree*/
 		return (NULL);
 
-	if (!first->parent || !second->parent)
-		return (NULL);
+	if (head->parent != NULL)
+	 	return bta(head->parent, first, second);
+		 
+	if (head->n > first->n && head->n > second->n) 	/* Search at the left */
+		return bta(head->left, first, second);
 
-	while (root->parent)
-	{
+	if (head->n < first->n && head->n < second->n)	/* Search at the right */
+		return bta(head->right, first, second);
 
-		root = root->parent;
-printf("quejue %d\n", root->n);
-	}
-	return (LCA(root, (binary_tree_t*)first, (binary_tree_t*)second));
+	return (head);
 }
 
-binary_tree_t *LCA(binary_tree_t *root, binary_tree_t *f, binary_tree_t *s)
-{
-	binary_tree_t *left, *right;
-printf("por aqui\n");
-	if (root == NULL)
-		return (NULL);
-	if (root->n == f->n || root->n == s->n)
-		return (root);
-	if (root->left)
-	left = LCA(root->left, f, s);
-	if (root->right)
-	right = LCA(root->right, f, s);
-	if (left && right)
-		return (root);
-	if (!left && !right)
-		return (NULL);
+/**
+ * binary_tree_ancestor - function that find the ancestor of two nodes
+ * @first: pointer to the first node
+ * @second: pointer to the second node
+ * Return: a pointer to the lowest common ancestor node of the two given nodes
+ * If no common ancestor was found, your function returns NULL
+ */
 
-	return ((left != NULL) ? left : right);
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+									 const binary_tree_t *second)
+{
+	if(first && second)
+		return ((binary_tree_t *)bta(first, first, second));
+	return (NULL);
 }
