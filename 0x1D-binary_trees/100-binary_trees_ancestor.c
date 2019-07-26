@@ -12,19 +12,21 @@
 const binary_tree_t *bta(const binary_tree_t *head, const binary_tree_t *first,
 						 const binary_tree_t *second)
 {
-	while (head->parent != NULL)
-		head = head->parent;
+	const binary_tree_t *left, *right;
 
-	while (head != NULL)
-	{
-		if (head->n > first->n && head->n > second->n)
-			head = head->left;
+	if (!head)
+		return (NULL);
 
-		else if (head->n < first->n && head->n < second->n)
-		   head = head->right;
-		else break;
-	}
-	return (head);
+	if (head->n == first->n || head->n == second->n)
+		return (head);
+
+	left = bta(head->left, first, second);
+	right = bta(head->right, first, second);
+
+	if (left && right)
+		return (head);
+
+	return (left != NULL ? left : right);
 }
 
 /**
@@ -38,7 +40,13 @@ const binary_tree_t *bta(const binary_tree_t *head, const binary_tree_t *first,
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 									 const binary_tree_t *second)
 {
-	if(first && second)
-		return ((binary_tree_t *)bta(first, first, second));
+	const binary_tree_t *h;
+
+	h = first;
+	while (h->parent != NULL && h != NULL)
+		h = h->parent;
+
+	if (first && second)
+		return ((binary_tree_t *)bta(h, first, second));
 	return (NULL);
 }
