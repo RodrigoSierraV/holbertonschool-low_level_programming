@@ -12,18 +12,18 @@
 const binary_tree_t *bta(const binary_tree_t *head, const binary_tree_t *first,
 						 const binary_tree_t *second)
 {
-	if (head == NULL)	/*Is there a tree*/
-		return (NULL);
+	while (head->parent != NULL)
+		head = head->parent;
 
-	if (head->parent != NULL)
-	 	return bta(head->parent, first, second);
-		 
-	if (head->n > first->n && head->n > second->n) 	/* Search at the left */
-		return bta(head->left, first, second);
+	while (head != NULL)
+	{
+		if (head->n > first->n && head->n > second->n)
+			head = head->left;
 
-	if (head->n < first->n && head->n < second->n)	/* Search at the right */
-		return bta(head->right, first, second);
-
+		else if (head->n < first->n && head->n < second->n)
+		   head = head->right;
+		else break;
+	}
 	return (head);
 }
 
