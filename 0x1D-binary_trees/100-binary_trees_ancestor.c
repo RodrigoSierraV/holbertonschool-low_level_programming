@@ -42,11 +42,13 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 {
 	const binary_tree_t *h;
 
-	h = first;
-	while (h->parent != NULL && h != NULL)
-		h = h->parent;
-
 	if (first && second)
+	{
+		h = first;
+		while (h->parent != NULL && h != NULL)
+			h = h->parent;
+
 		return ((binary_tree_t *)bta(h, first, second));
+	}
 	return (NULL);
 }
