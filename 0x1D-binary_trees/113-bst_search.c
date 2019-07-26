@@ -9,12 +9,10 @@
 
 bst_t *bst_search(const bst_t *tree, int value)
 {
-	const bst_t *node;
-
 	if (tree)
 	{
 		if (value == tree->n)
-			return (tree->n);
+			return ((bst_t *)tree);
 
 		if (value > tree->n)
 			return (bst_search(tree->right, value));
